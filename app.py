@@ -18,14 +18,14 @@ key_vault_uri = os.getenv("KEY_VAULT_URI")
 secret_client = SecretClient(vault_url=key_vault_uri, credential=credential)
 
 # Retrieve secrets from Azure Key Vault
-openaiapi_version = secret_client.get_secret("version").value
-openaiapi_base = secret_client.get_secret("base").value
-openaiapi_key = secret_client.get_secret("key").value
-model = secret_client.get_secret("model").value
-subscription_id = secret_client.get_secret("subscription-id").value
-resource_group = secret_client.get_secret("resource-group").value
-workspace_name = secret_client.get_secret("workspace-name").value
-sentinelapiversion = secret_client.get_secret("sentinelapiversion").value
+openaiapi_version = secret_client.get_secret("aoai-api-version").value
+openaiapi_base = secret_client.get_secret("aoai-endpoint").value
+openaiapi_key = secret_client.get_secret("aoai-key").value
+model = secret_client.get_secret("aoai-deployment").value
+subscription_id = secret_client.get_secret("sentinel-subscription-id").value
+resource_group = secret_client.get_secret("sentinel-resource-group").value
+workspace_name = secret_client.get_secret("sentinel-workspace-name").value
+sentinelapiversion = secret_client.get_secret("sentinel-api-version").value
 
 # Initialize the OpenAIAPI client
 client = AzureOpenAI(api_version=openaiapi_version,
